@@ -1,0 +1,23 @@
+{
+  "name": "mb-utils",
+  "version": "1.0.0",
+  "repository": "git@github.com:mbDesignn/mb-utils.git",
+  "author": "Moobye <moobyes@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  },
+  "lint-staged": {
+    "src/**/*.js": ["eslint --fix", "git add"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  }
+}
