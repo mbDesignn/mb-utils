@@ -10,7 +10,10 @@
     "lint-staged": "^10.2.11"
   },
   "lint-staged": {
-    "src/**/*.js": ["eslint --fix", "git add"]
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
@@ -19,5 +22,8 @@
   },
   "engines": {
     "node": ">= 6.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }
