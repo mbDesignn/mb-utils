@@ -2,7 +2,7 @@
  * @Description: 方法首页
  * @Author: Moobye
  * @Date: 2020-08-07 22:48:08
- * @LastEditTime: 2020-08-11 18:14:56
+ * @LastEditTime: 2020-08-12 15:28:56
  * @LastEditors: Moobye
  */
 
@@ -13,7 +13,6 @@
 })(this, function (exports) {
   'use strict'
 
-  console.log('global :>> ', exports)
   /**
  * @description: 日期时间格式化方法
  * @param  date {Date}，日期
@@ -22,8 +21,11 @@
  * @example dateFormat(new Date()) 返回：'2020-08-10'
  */
   function dateFormat (date, formatType = 'yyyy-MM-dd') {
-
-    var o = {
+    const isString = typeof formatType === 'string'
+    if (!isString) {
+      throw new Error('返回的格式类型必须是字符串！')
+    }
+    let o = {
       'M+': date.getMonth() + 1, // 月份
       'd+': date.getDate(), // 日
       'h+': date.getHours(), // 小时
@@ -38,7 +40,7 @@
         (date.getFullYear() + '').substr(4 - RegExp.$1.length)
       )
     }
-    for (var k in o) {
+    for (let k in o) {
       if (new RegExp('(' + k + ')').test(formatType)) {
         formatType = formatType.replace(
           RegExp.$1,
@@ -48,6 +50,7 @@
     }
     return formatType
   }
+
   exports.dateFormat = dateFormat
   // window.mb = global
   Object.defineProperty(exports, 'esModule', { value: true })
